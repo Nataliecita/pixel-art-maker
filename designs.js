@@ -15,8 +15,12 @@ function makeGrid(height, width) {
 console.log(height + 'this is the height');
 console.log(typeof width);
 
-
-
+  for(var y = 0; y < height; y++){
+    for(var x = 0; x < width; x++){
+      console.log('*');
+    }
+    // console.log("\n");
+  }
 }
 
 // Listen for submitted form
