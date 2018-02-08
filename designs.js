@@ -3,22 +3,21 @@
 
 // When size is submitted by the user, call makeGrid()
 
-function makeGrid() {
+
+/**
+ * Represents Grid
+ *
+ * @param {int} height - The height of the grid.
+ * @param {int} width - The width of the grid.
+ */
+function makeGrid(height, width) {
 
 // Your code goes here!
+console.log(height);
+console.log(width + 'this is the width');
 
 
 }
-
-function grabValues() {
-  let height = document.getElementById('inputHeight').value
-
-  let width = document.getElementById('inputWidth').value
-  console.log(height);
-  console.log(width + 'this is the width');
-}
-
-
 
 // Listen for submitted form
 var dimensions = document.getElementById('sizePicker');
@@ -27,9 +26,8 @@ dimensions.addEventListener("submit", function(evt) {
     evt.preventDefault();
     console.log("wooohoo form submitted");
 
-    let height = document.getElementById('inputHeight').value
+    const height = document.getElementById('inputHeight').value
+    const width = document.getElementById('inputWidth').value
 
-    let width = document.getElementById('inputWidth').value
-    console.log(height);
-    console.log(width + 'this is the width');
+    makeGrid(height, width);
 })
