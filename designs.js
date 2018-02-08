@@ -4,25 +4,28 @@ $(function() {
 
   // When size is submitted by the user, call makeGrid()
 
-
   /**
    * Represents Grid
    * @param {int} height - The height of the grid.
    * @param {int} width - The width of the grid.
    */
   function makeGrid(height, width) {
-
-  // Your code goes here!
   console.log(height + 'this is the height');
   console.log(typeof width);
 
+  let table = '';
+
     for(var y = 0; y < height; y++){
+      table += '<tr>';
       for(var x = 0; x < width; x++){
-        console.log('*');
+        table += '<td>&nbsp;</td>';
       }
-      // console.log("\n");
+      table += '</tr>';
     }
+    $("#pixelCanvas").html(table);
   }
+
+
 
   // Listen for submitted form
   var dimensions = document.getElementById('sizePicker');
