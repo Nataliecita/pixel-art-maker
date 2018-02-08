@@ -10,7 +10,7 @@ function makeGrid() {
 
 }
 
-function submit() {
+function grabValues() {
   let height = document.getElementById('inputHeight').value
 
   let width = document.getElementById('inputWidth').value
@@ -18,4 +18,11 @@ function submit() {
   console.log(width + 'this is the width');
 }
 
-submit();
+
+
+var dimensions = document.getElementById('sizePicker');
+
+dimensions.addEventListener("submit", function(evt) {
+    evt.preventDefault();
+    console.log("wooohoo form submitted");
+})
