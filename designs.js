@@ -25,4 +25,10 @@ var dimensions = document.getElementById('sizePicker');
 dimensions.addEventListener("submit", function(evt) {
     evt.preventDefault();
     console.log("wooohoo form submitted");
+
+    let height = document.getElementById('inputHeight').value
+
+    let width = document.getElementById('inputWidth').value
+    console.log(height);
+    console.log(width + 'this is the width');
 })
