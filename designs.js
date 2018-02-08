@@ -20,6 +20,7 @@ function grabValues() {
 
 
 
+// Listen for submitted form
 var dimensions = document.getElementById('sizePicker');
 
 dimensions.addEventListener("submit", function(evt) {
