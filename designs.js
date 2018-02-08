@@ -10,10 +10,7 @@ $(function() {
    * @param {int} width - The width of the grid.
    */
   function makeGrid(height, width) {
-  console.log(height + 'this is the height');
-  console.log(typeof width);
-
-  let table = '';
+    let table = '';
 
     for(var y = 0; y < height; y++){
       table += '<tr>';
