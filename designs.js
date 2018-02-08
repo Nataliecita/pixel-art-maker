@@ -1,6 +1,4 @@
 $(function() {
-  // Select color input
-
   /**
    * Represents Grid
    * @param {int} height - The height of the grid.
@@ -34,11 +32,23 @@ $(function() {
       makeGrid(height, width);
   })
 
-  // color squares
-  $("#pixelCanvas").on( "click","td", function( event ) {
-    event.preventDefault();
-    $(this).css("background-color", "red");
 
-});
+  // select color
+  let color = $("#colorPicker").val();
+
+// TODO BUG square isnt caputring color. when it does the other funciton was outide the other and there was a bug
+  // color squares
+  $("#pixelCanvas").on("click","td", function(event) {
+    event.preventDefault();
+
+    // select color
+    $("#colorPicker").on("click", function(event){
+      let color = $("#colorPicker").val();
+    })
+
+    $(this).css("background-color", color);
+    console.log(color);
+
+  });
 
 });
