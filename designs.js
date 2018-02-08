@@ -13,9 +13,9 @@ function makeGrid() {
 function submit() {
   let height = document.getElementById('inputHeight').value
 
-  let weight = document.getElementById('inputWeight').value
+  let width = document.getElementById('inputWidth').value
   console.log(height);
-  console.log(weight);
+  console.log(width + 'this is the width');
 }
 
 submit();
