@@ -7,4 +7,15 @@ function makeGrid() {
 
 // Your code goes here!
 
+
 }
+
+function submit() {
+  let height = document.getElementById('inputHeight').value
+
+  let weight = document.getElementById('inputWeight').value
+  console.log(height);
+  console.log(weight);
+}
+
+submit();
