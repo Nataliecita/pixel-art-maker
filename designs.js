@@ -33,15 +33,12 @@ $(function() {
   })
 
 
-// TODO BUG square isnt caputring color. when it does the other function was outide the other and there was a bug
-
-let color;
+let color = $("#colorPicker").val();
 // select color
 $("#colorPicker").on("change", function(event){
   color = $("#colorPicker").val();
   console.log(color);
 })
-
 
   // color squares
   $("#pixelCanvas").on("click","td", function(event) {
