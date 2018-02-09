@@ -10,7 +10,7 @@ $(function() {
     for(var y = 0; y < height; y++){
       table += '<tr>';
       for(var x = 0; x < width; x++){
-        table += '<td></td>';
+        table += '<td class="clear"></td>';
       }
       table += '</tr>';
     }
@@ -32,13 +32,10 @@ $(function() {
       makeGrid(height, width);
   })
 
-let colorRGB = $("#colorPicker").css("background-color");
 let colorHex = $("#colorPicker").val();
 
 // select color
 $("#colorPicker").on("change", function(event){
-  colorRGB = $("#colorPicker").css("background-color");
-  console.log(colorRGB)
   colorHex = $("#colorPicker").val();
 })
 
@@ -46,16 +43,55 @@ $("#colorPicker").on("change", function(event){
   $("#pixelCanvas").on("click","td", function(event) {
     event.preventDefault();
 
-    var currentUnitColor = $(this).css("background-color");
-    // currentUnitColor is in RGB while the color of the picker  is in HEX
-    if(currentUnitColor !== colorRGB){
-      console.log('the current unit color is different than the color picker color ');
-      // $(this).css('background-color', colorHex);
-      console.log("current unit color " + currentUnitColor);
-      console.log("currrent colorRGB value from the picker" + colorRGB);
+
+    let currentUnitColor;
+    const clear = "#000000FF";
+
+    if( $(this).hasClass("clear")){
+      console.log("it was clear");
+
+      ( $(this) ).toggleClass("clear");
+      ( $(this) ).toggleClass(colorHex);
+      console.log(colorHex);
+
+      console.log("the previous currint unit was" +currentUnitColor);
+      console.log("the current color hex is" + colorHex);
+      currentUnitColor = colorHex;
+      console.log("now current unit" + currentUnitColor);
+
+      $(this).css('background-color', colorHex);
+      console.log(currentUnitColor === colorHex)
+
+    } else if ( !($(this).hasClass("clear")) && $(this).hasClass(colorHex) ){
+      console.log("the previous currint unit was" +currentUnitColor);
+      console.log("the current color hex is" + colorHex);
+      currentUnitColor = colorHex;
+      console.log("now current unit" + currentUnitColor);
+
+    $(this).css('background-color', "#fff");
+      ( $(this) ).toggleClass("clear");
+        ( $(this) ).toggleClass(colorHex);
+
+      console.log("haaaay");
     } else {
-      console.log("current unit color is already" + colorHex);
+      $(this).css('background-color', colorHex);
+      console.log("last");
     }
+
+
+    // if a square is clicked, add class “color: black”, if it is clicked again, use “remove class”
+
+
+
+
+    // if(currentUnitColor !== colorRGB){
+    //   console.log('the current unit color is different than the color picker color ');
+    //   $(this).css('background-color', colorHex);
+    //   console.log("current unit color " + currentUnitColor);
+    //   console.log("currrent colorRGB value from the picker" + colorRGB);
+    // } else {
+    //   console.log("current unit color is already" + colorHex);
+    // }
   });
 
 });
