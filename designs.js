@@ -76,6 +76,8 @@ $("#colorPicker").on("change", function(event){
     } else {
       $(this).css('background-color', colorHex);
       console.log("last");
+      ( $(this) ).toggleClass(colorHex);
+
     }
 
 
