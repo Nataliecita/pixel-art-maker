@@ -43,32 +43,35 @@ $("#colorPicker").on("change", function(event){
   $("#pixelCanvas").on("click","td", function(event) {
     event.preventDefault();
 
-    let currentUnitColor;
+    let $currentTile = $(this);
+
     const clear = "#000000FF";
 
-    if( $(this).hasClass("clear")){
+    if( $currentTile.hasClass("clear")){
 
-      toggleClear($(this));
-      // ( $(this) ).toggleClass("clear");
-      ( $(this) ).toggleClass(colorHex);
+      toggleClear($currentTile);
+      toggleColor($currentTile);
 
-      currentUnitColor = colorHex;
+      $currentTile.css('background-color', colorHex);
 
-      $(this).css('background-color', colorHex);
-    } else if ( !($(this).hasClass("clear")) && $(this).hasClass(colorHex) ){
+    } else if ( !($currentTile.hasClass("clear")) &&    $currentTile.hasClass(colorHex) ){
+      $currentTile.css('background-color', "#fff");
 
-      currentUnitColor = colorHex;
-    $(this).css('background-color', "#fff");
-      ( $(this) ).toggleClass("clear");
-        ( $(this) ).toggleClass(colorHex);
+      toggleClear($currentTile);
+      toggleColor($currentTile);
+
     } else {
-      $(this).css('background-color', colorHex);
-      ( $(this) ).toggleClass(colorHex);
+      $currentTile.css('background-color', colorHex);
+      toggleColor($currentTile);
     }
   });
 
   function toggleClear(tile){
     tile.toggleClass("clear");
+  }
+
+  function toggleColor(tile){
+    tile.toggleClass(colorHex);
   }
 
 });
