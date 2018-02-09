@@ -43,57 +43,32 @@ $("#colorPicker").on("change", function(event){
   $("#pixelCanvas").on("click","td", function(event) {
     event.preventDefault();
 
-
     let currentUnitColor;
     const clear = "#000000FF";
 
     if( $(this).hasClass("clear")){
-      console.log("it was clear");
 
-      ( $(this) ).toggleClass("clear");
+      toggleClear($(this));
+      // ( $(this) ).toggleClass("clear");
       ( $(this) ).toggleClass(colorHex);
-      console.log(colorHex);
 
-      console.log("the previous currint unit was" +currentUnitColor);
-      console.log("the current color hex is" + colorHex);
       currentUnitColor = colorHex;
-      console.log("now current unit" + currentUnitColor);
 
       $(this).css('background-color', colorHex);
-      console.log(currentUnitColor === colorHex)
-
     } else if ( !($(this).hasClass("clear")) && $(this).hasClass(colorHex) ){
-      console.log("the previous currint unit was" +currentUnitColor);
-      console.log("the current color hex is" + colorHex);
-      currentUnitColor = colorHex;
-      console.log("now current unit" + currentUnitColor);
 
+      currentUnitColor = colorHex;
     $(this).css('background-color', "#fff");
       ( $(this) ).toggleClass("clear");
         ( $(this) ).toggleClass(colorHex);
-
-      console.log("haaaay");
     } else {
       $(this).css('background-color', colorHex);
-      console.log("last");
       ( $(this) ).toggleClass(colorHex);
-
     }
-
-
-    // if a square is clicked, add class “color: black”, if it is clicked again, use “remove class”
-
-
-
-
-    // if(currentUnitColor !== colorRGB){
-    //   console.log('the current unit color is different than the color picker color ');
-    //   $(this).css('background-color', colorHex);
-    //   console.log("current unit color " + currentUnitColor);
-    //   console.log("currrent colorRGB value from the picker" + colorRGB);
-    // } else {
-    //   console.log("current unit color is already" + colorHex);
-    // }
   });
+
+  function toggleClear(tile){
+    tile.toggleClass("clear");
+  }
 
 });
