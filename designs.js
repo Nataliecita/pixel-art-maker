@@ -32,20 +32,30 @@ $(function() {
       makeGrid(height, width);
   })
 
+let colorRGB = $("#colorPicker").css("background-color");
+let colorHex = $("#colorPicker").val();
 
-let color = $("#colorPicker").val();
 // select color
 $("#colorPicker").on("change", function(event){
-  color = $("#colorPicker").val();
-  console.log(color);
+  colorRGB = $("#colorPicker").css("background-color");
+  console.log(colorRGB)
+  colorHex = $("#colorPicker").val();
 })
 
   // color squares
   $("#pixelCanvas").on("click","td", function(event) {
-    // event.preventDefault();
+    event.preventDefault();
 
-    $(this).css("background-color", color);
-    console.log(color);
+    var currentUnitColor = $(this).css("background-color");
+    // currentUnitColor is in RGB while the color of the picker  is in HEX
+    if(currentUnitColor !== colorRGB){
+      console.log('the current unit color is different than the color picker color ');
+      // $(this).css('background-color', colorHex);
+      console.log("current unit color " + currentUnitColor);
+      console.log("currrent colorRGB value from the picker" + colorRGB);
+    } else {
+      console.log("current unit color is already" + colorHex);
+    }
   });
 
 });
