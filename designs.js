@@ -34,10 +34,14 @@ $(function() {
 
 let colorHex = $("#colorPicker").val();
 
-// select color
+// select color from the picker
 $("#colorPicker").on("change", function(event){
   colorHex = $("#colorPicker").val();
 })
+
+// toggle classes
+function toggleClear(tile){tile.toggleClass("clear");}
+function toggleColor(tile){tile.toggleClass(colorHex);}
 
   // color squares
   $("#pixelCanvas").on("click","td", function(event) {
@@ -48,12 +52,10 @@ $("#colorPicker").on("change", function(event){
     const clear = "#000000FF";
 
     if( $currentTile.hasClass("clear")){
-
       toggleClear($currentTile);
       toggleColor($currentTile);
 
       $currentTile.css('background-color', colorHex);
-
     } else if ( !($currentTile.hasClass("clear")) &&    $currentTile.hasClass(colorHex) ){
       $currentTile.css('background-color', "#fff");
 
@@ -65,13 +67,5 @@ $("#colorPicker").on("change", function(event){
       toggleColor($currentTile);
     }
   });
-
-  function toggleClear(tile){
-    tile.toggleClass("clear");
-  }
-
-  function toggleColor(tile){
-    tile.toggleClass(colorHex);
-  }
 
 });
