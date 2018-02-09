@@ -1,4 +1,7 @@
 $(function() {
+
+  // global
+  let colorHex = $("#colorPicker").val();
   /**
    * Represents Grid
    * @param {int} height - The height of the grid.
@@ -32,7 +35,6 @@ $(function() {
       makeGrid(height, width);
   })
 
-let colorHex = $("#colorPicker").val();
 
 // select color from the picker
 $("#colorPicker").on("change", function(event){
@@ -48,16 +50,20 @@ function toggleColor(tile){tile.toggleClass(colorHex);}
     event.preventDefault();
 
     let $currentTile = $(this);
+    console.log("when it's clicked before changes " + $currentTile.val());
 
-    const clear = "#000000FF";
+    const clear = "#00000000";
 
     if( $currentTile.hasClass("clear")){
       toggleClear($currentTile);
       toggleColor($currentTile);
 
       $currentTile.css('background-color', colorHex);
-    } else if ( !($currentTile.hasClass("clear")) &&    $currentTile.hasClass(colorHex) ){
-      $currentTile.css('background-color', "#fff");
+    } else if ( !($currentTile.hasClass("clear")) && $currentTile.hasClass(colorHex) ){
+      // Alternative to using clear;
+      // $currentTile.css('background-color', "");
+      $currentTile.css('background-color', clear);
+      console.log("should set it to clear now " + $currentTile);
 
       toggleClear($currentTile);
       toggleColor($currentTile);
