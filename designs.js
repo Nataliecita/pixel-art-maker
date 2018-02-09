@@ -33,22 +33,22 @@ $(function() {
   })
 
 
-  // select color
-  let color = $("#colorPicker").val();
+// TODO BUG square isnt caputring color. when it does the other function was outide the other and there was a bug
 
-// TODO BUG square isnt caputring color. when it does the other funciton was outide the other and there was a bug
+let color;
+// select color
+$("#colorPicker").on("change", function(event){
+  color = $("#colorPicker").val();
+  console.log(color);
+})
+
+
   // color squares
   $("#pixelCanvas").on("click","td", function(event) {
-    event.preventDefault();
-
-    // select color
-    $("#colorPicker").on("click", function(event){
-      let color = $("#colorPicker").val();
-    })
+    // event.preventDefault();
 
     $(this).css("background-color", color);
     console.log(color);
-
   });
 
 });
